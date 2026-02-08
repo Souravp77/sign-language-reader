@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block title %}Login - Smart Expense Tracker{% endblock %}
+{% block body_class %}auth-page{% endblock %}
+
+{% block content %}
+<div class="auth-box">
+    <div class="auth-header">
+        <div class="app-logo">
+            <i class="bi bi-wallet2 logo-icon"></i>
+            <span class="logo-text">Smart Expense Tracker</span>
+        </div>
+        <p class="app-tagline">Track your expenses, achieve your goals</p>
+        <div class="page-title">Welcome Back</div>
+        <p class="page-subtitle">Please enter your details to sign in</p>
+    </div>
+
+    <!-- ADD action="{{ url_for('auth.login') }}" -->
+    <form id="loginForm" method="POST" action="{{ url_for('auth.login') }}" novalidate>
+        <div class="form-group">
+            <div class="password-wrapper">
+                <input type="email" id="email" name="email" class="form-input" 
+                       placeholder=" " required value="{{ request.form.email if request.form.email }}">
+                <label for="email" class="form-label">Email Address</label>
+            </div>
+            <div id="emailError" class="error-msg">Please enter a valid email address.</div>
+        </div>
+
+        <div class="form-group">
+            <div class="password-wrapper">
+                <input type="password" id="password" name="password" class="form-input" placeholder=" " required>
+                <label for="password" class="form-label">Password</label>
+                <button type="button" class="toggle-password" aria-label="Toggle password visibility">
+                    <i class="bi bi-eye"></i>
+                </button>
+            </div>
+            <div id="passwordError" class="error-msg">Password must be at least 6 characters.</div>
+        </div>
+
+        <button type="submit" class="btn-primary">Sign In</button>
+
+        <div class="form-footer">
+            New to Smart Expense Tracker?
+            <a href="{{ url_for('auth.register') }}">Create an account</a>
+        </div>
+    </form>
+</div>
+{% endblock %}

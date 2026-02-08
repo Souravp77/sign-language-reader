@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block title %}Dashboard - Smart Expense Tracker{% endblock %}
+
+{% block content %}
+<div style="max-width: 1200px; margin: 0 auto; padding: 20px;">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px;">
+        <div>
+            <h1 style="margin: 0;">Welcome, {{ user.username }}! 👋</h1>
+            <p style="color: #64748b; margin: 5px 0;">{{ user.email }}</p>
+        </div>
+        <a href="{{ url_for('auth.logout') }}" 
+           style="background: #2563eb; color: white; padding: 10px 20px; border-radius: 8px; text-decoration: none;">
+            <i class="bi bi-box-arrow-right"></i> Logout
+        </a>
+    </div>
+    
+    <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 40px; border-radius: 16px; text-align: center; margin-bottom: 40px;">
+        <h2 style="font-size: 32px; margin-bottom: 10px;">Smart Expense Tracker</h2>
+        <p style="font-size: 18px; opacity: 0.9;">Your personal finance dashboard</p>
+    </div>
+    
+    <div style="text-align: center; padding: 60px 20px;">
+        <h2>🚀 Authentication Module Complete!</h2>
+        <p>You've successfully built a secure login system.</p>
+        <p>Next: Build the Expense Management Module (Phase 5)</p>
+        <div style="margin-top: 30px;">
+            <a href="{{ url_for('auth.logout') }}" style="background: #2563eb; color: white; padding: 12px 30px; border-radius: 8px; text-decoration: none; display: inline-block;">
+                Logout & Continue
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}
